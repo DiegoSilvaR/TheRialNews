@@ -63,6 +63,21 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "TheRialNews_production"
 
   config.action_mailer.perform_caching = false
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_options = {from: 'no-reply@testemail.com'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com',
+  port: 587,
+  domain: 'example.com',
+  user_name: ENV["gmail_email"],
+  password: ENV["gmail_password"],
+  authentication: 'plain',
+  enable_starttls_auto: true
+}
+
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

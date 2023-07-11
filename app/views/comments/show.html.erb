@@ -1,11 +1,16 @@
+<div class="row justify-content-center align-items-center" style="height: 80vh;">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="p-3 rounded-3 shadow-lg glass2">
+      <div class="card-body text-center text-light">
+        <h3><%= @comment.content %></h3>
+        <h6>Publicado por: <%= @comment.user.email %></h6>
 
-
-<p><%= @comment.content %></p>
-<p>Posted by: <%= @comment.user.email %></p>
-
-<div>
-  <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
-  <%= link_to "Back to comments", comments_path %>
-
-  <%= button_to "Destroy this comment", @comment, method: :delete %>
+        <div class="text-center justify-content-center input-group mt-4">
+          <%= link_to "Editar Comentario", edit_comment_path(@comment), class: "btn btn-sm btn-secondary" %>
+          <%= link_to "Volver a comentarios", comments_path, class: "btn btn-sm btn-warning" %>
+          <%= button_to "Eliminar comentario", @comment, method: :delete, class: "btn btn-sm rounded-0 rounded-end btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -76,11 +76,13 @@ border: 1px solid rgba(10, 151, 255, 0.59);
 
   <body>
   <%= render"shared/navbar" %>
+
  <script>
   <% if notice.present? %>
     Swal.fire({
-      icon: 'success',
-      title: '¡Éxito!',
+      icon: 'info',
+      title: '¡Aviso!',
+      backgroundColor: '#272727',
       text: '<%= notice.html_safe %>',
       confirmButtonText: 'Aceptar'
     });
@@ -92,8 +94,6 @@ border: 1px solid rgba(10, 151, 255, 0.59);
             elements[i].classList.add('fade-in');
         }
     });
-
-
 
     $(document).ready(function () {
         if ($("body div:last") != null)

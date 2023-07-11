@@ -1,10 +1,16 @@
-<h1>Editing report</h1>
+<div class="row justify-content-center align-items-center" style="height: 80vh;">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class="p-3 rounded-3 shadow glass">
+      <div class="card-body">
+        <h1 class="card-title text-center text-warning">Editar Reporte</h1>
 
-<%= render "form", report: @report %>
+        <%= render "form", report: @report %>
 
-<br>
-
-<div>
-  <%= link_to "Show this report", @report %> |
-  <%= link_to "Back to reports", reports_path %>
+        <div class="text-center mt-3 input-group justify-content-center">
+          <%= link_to "Ver Reporte", @report, class: "btn btn-primary" %>
+          <%= link_to "Volver a Reportes", reports_path, class: "btn btn-warning" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

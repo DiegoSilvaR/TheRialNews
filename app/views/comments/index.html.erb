@@ -1,13 +1,30 @@
-
-<h1>Comments</h1>
-
-<div id="comments">
-  <% @comments.each do |comment| %>
-    <%= render comment %>
-    <p>
-      <%= link_to "Show this comment", comment %>
-    </p>
-  <% end %>
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
+  <div class="card glass2 bg-transparent w-100">
+    <div class="card-body">
+      <h1 class="card-title text-warning">Comentarios</h1>
+      <div class="table-responsive">
+        <table class="table table-striped ">
+          <thead class="table-dark">
+            <tr>
+              <th>ID</th>
+              <th>Contenido</th>
+              <th>Usuario</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @comments.each do |comment| %>
+              <tr>
+                <td><%= comment.id %></td>
+                <td><%= comment.content %></td>
+                <td><%= comment.user.name %></td>
+                <td><%= link_to "", comment, class: "fa-sharp fa-solid fa-eye text-decoration-none" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%= link_to "Volver a Reportes", reports_path, class: "btn btn-primary glow-on-hover bg-primary" %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New comment", new_comment_path %>

@@ -2,6 +2,15 @@ class ReportsController < ApplicationController
   before_action :set_report, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index show ]
   before_action :redirect_si_user_no_coincide_con_creador_del_post, only: %i[ edit update destroy ]
+
+  before_action only: [:new, :create] do
+    authorize_request(["author", "admin"])
+   end
+
+   before_action only: [:edit, :update, :destroy] do
+    authorize_request(["admin"])
+   end
+
   # GET /reports or /reports.json
   def index
     @reports = Report.all

@@ -1,9 +1,15 @@
-<h1>New report</h1>
+<div class="row justify-content-center align-items-center" style="height: 80vh;">
+  <div class="col-lg-6 col-md-8 col-sm-10">
+    <div class=" glass p-4 rounded-4 shadow-lg">
+      <div class="card-body">
+        <h1 class="card-title text-center text-warning shadow-text">Nuevo Reporte</h1>
 
-<%= render "form", report: @report %>
+        <%= render "form", report: @report %>
 
-<br>
-
-<div>
-  <%= link_to "Back to reports", reports_path %>
+        <div class="text-center mt-3">
+          <%= link_to "Volver a Reportes", reports_path, class: "btn btn-sm btn-primary glow-on-hover rounded-pill bg-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

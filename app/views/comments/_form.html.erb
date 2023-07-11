@@ -1,32 +1,33 @@
-<%= form_with(model: comment) do |form| %>
+<%= form_with(model: comment, class: "form") do |form| %>
   <% if comment.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
       <ul>
-        <% comment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
+  <div class="mb-3">
+    <%= form.label :content, "Contenido", class: "form-label fs-5 fw-bold text-light" %>
+    <%= form.text_field :content, class: "form-control rounded-pill" %>
   </div>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
+  <div class="mb-3">
+    <%= form.label :user_id, class: "form-label fs-5 fw-bold text-light" %>
+    <%= form.text_field :user_id, class: "form-control rounded-pill" %>
   </div>
 
-  <div>
-    <%= form.label :report_id, style: "display: block" %>
-    <%= form.text_field :report_id %>
+  <div class="mb-3">
+    <%= form.label :report_id, class: "form-label fs-5 fw-bold text-light" %>
+
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="text-center input-group">
+  <%= form.text_field :report_id, class: "form-control rounded-0 rounded-end rounded-pill" %>
+    <%= form.submit "Actualizar", class: "rounded-0 rounded-start rounded-pill btn btn-primary" %>
   </div>
 <% end %>
