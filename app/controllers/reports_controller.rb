@@ -1,7 +1,6 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index show ]
-  before_action :redirect_si_user_no_coincide_con_creador_del_post, only: %i[edit update destroy]
   before_action :redirect_si_user_no_coincide_con_creador_del_post_admin, only: %i[edit update destroy]
 
   before_action only: [:new, :create] do
@@ -81,7 +80,7 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(:image, :title, :description, :user_id)
     end
-   def redirect_si_user_no_coincide_con_creador_del_post
+   def redirect_si_user_no_coincide_con_creador_del_post_admin
   if current_user.id != @report.user_id && !current_user.admin?
     redirect_to reports_path, notice: "No puedes editar esta Noticia"
   end
