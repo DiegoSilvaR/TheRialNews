@@ -41,6 +41,7 @@
 </div>
   <div class="card-footer bg-opacity-50 d-flex justify-content-between bg-primary bg-gradient text-warning"; style="font-size:12px">
     <%= time_ago_in_words(report.created_at, locale: :es) %>
+    Autor: <%= report.user.name %>
     <%= link_to "Ver Articulo", report, class:"text-light" %>
       </div>
       </div>
