@@ -71,7 +71,7 @@ group :test do
   gem "webdrivers"
 end
 # para generar semillas 
-gem "seed"
+#gem "seed"
 
 # gema que se utiliza para formularios validaciones
   gem "devise"
