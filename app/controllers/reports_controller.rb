@@ -81,19 +81,12 @@ class ReportsController < ApplicationController
     def report_params
       params.require(:report).permit(:image, :title, :description, :user_id)
     end
-    def redirect_si_user_no_coincide_con_creador_del_post
-      if current_user.id != @report.user_id
-        redirect_to reports_path, notice: "No puedes editar esta Noticia"
-      end
-    end
+   def redirect_si_user_no_coincide_con_creador_del_post
+  if current_user.id != @report.user_id && !current_user.admin?
+    redirect_to reports_path, notice: "No puedes editar esta Noticia"
+  end
 end
-def redirect_si_user_no_coincide_con_creador_del_post
-  # Verifica si el usuario no coincide con el creador del post
-  # y redirige o realiza alguna acción en consecuencia.
+
 end
-def redirect_si_user_no_coincide_con_creador_del_post_admin
-  return if current_user.admin?
-  
-  # Aquí puedes agregar la lógica específica para el usuario admin
-  # si no quieres que se redirija o realice alguna acción en particular.
-end
+
+
