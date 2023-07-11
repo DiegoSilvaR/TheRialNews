@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   before_action :redirect_si_user_no_coincide_con_creador_del_post, only: %i[ edit update destroy ]
 
   before_action only: [:new, :create] do
-    authorize_request(["author", "admin"])
+    authorize_request(["author", "admin", "normal_user"])
    end
 
    before_action only: [:edit, :update, :destroy] do
