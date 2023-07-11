@@ -1,20 +1,10 @@
-<div id="<%= dom_id(report) %>">
-  <p>
-    <%= image_tag report.image, style: "max-width: 300px;" %>
-  </p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= report.title %>
-  </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= report.description %>
-  </p>
+<%= render @report %>
 
-  <p>
-    <strong>User:</strong>
-    <%= report.user_id %>
-  </p>
+<div>
+  <%= link_to "Edit this report", edit_report_path(@report) %> |
+  <%= link_to "Back to reports", reports_path %>
+
+  <%= button_to "Destroy this report", @report, method: :delete %>
 </div>
