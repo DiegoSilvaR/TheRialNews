@@ -71,6 +71,8 @@ group :test do
   gem "webdrivers"
 end
 # gema que se utiliza para formularios validaciones
-  gem "devise"
 
 
+group :production do
+   gem "devise"
+end
