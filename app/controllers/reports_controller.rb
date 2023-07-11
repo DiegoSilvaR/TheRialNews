@@ -1,7 +1,8 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: %i[ index show ]
-  before_action :redirect_si_user_no_coincide_con_creador_del_post, only: %i[ edit update destroy ]
+  before_action :redirect_si_user_no_coincide_con_creador_del_post, only: %i[edit update destroy]
+  before_action :redirect_si_user_no_coincide_con_creador_del_post_admin, only: %i[edit update destroy]
 
   before_action only: [:new, :create] do
     authorize_request(["author", "admin", "normal_user"])
@@ -86,4 +87,13 @@ class ReportsController < ApplicationController
       end
     end
 end
-
+def redirect_si_user_no_coincide_con_creador_del_post
+  # Verifica si el usuario no coincide con el creador del post
+  # y redirige o realiza alguna acción en consecuencia.
+end
+def redirect_si_user_no_coincide_con_creador_del_post_admin
+  return if current_user.admin?
+  
+  # Aquí puedes agregar la lógica específica para el usuario admin
+  # si no quieres que se redirija o realice alguna acción en particular.
+end
