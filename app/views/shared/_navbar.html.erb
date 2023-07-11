@@ -26,11 +26,11 @@
                 Bienvenid@ <%= current_user.email %>
               <% end %>
               <% if current_user.admin? %>
-                - Admin
+                - Administrador
               <% elsif current_user.author? %>
                 - Author
               <% else %>
-                - Normal User
+                - Usuario
               <% end %>
             <% else %>
               Inicia sesión o regístrate
